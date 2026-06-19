@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سامانه Web GIS</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* آبی تیره مهندسی */
+            --secondary-color: #0d9488; /* سبزآبی تعاملی نقشه‌ای */
+            --bg-color: #0f172a; /* پس‌زمینه تیره و مدرن */
+            --card-bg: #1e293b; /* رنگ کارت‌ها */
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+        }
+
+        body { 
+            font-family: Tahoma, Arial, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-main); 
+            margin: 0; 
+            padding: 0; 
+        }
+
+        /* هدر شبیه به سامانه‌های ژئوپورتال */
+        header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+            padding: 40px 20px;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin-top: 10px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            padding: 0 20px;
+        }
+
+        /* استایل کارت‌های شبیه داشبوردهای GIS */
+        .card { 
+            background: var(--card-bg); 
+            border: 1px solid #334155; 
+            border-radius: 12px; 
+            padding: 25px; 
+            margin-bottom: 25px; 
+            text-align: right; 
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            transition: transform 0.2s, border-color 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* نوار رنگی کنار کارت‌ها */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 5px;
+            background-color: var(--secondary-color);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            border-color: var(--secondary-color);
+        }
+
+        .card h3 { 
+            margin-top: 0; 
+            color: #fff; 
+            font-size: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* آیکون‌های شبیه‌سازی شده قبل از عنوان */
+        .card h3::before {
+            content: '🌐';
+            font-size: 16px;
+        }
+
+        .card p { 
+            font-size: 14px; 
+            color: var(--text-muted); 
+            line-height: 1.6;
+        }
+
+        /* دکمه‌های ناوبری نقشه */
+        .btn { 
+            display: inline-flex; 
+            align-items: center;
+            background-color: var(--secondary-color); 
+            color: white; 
+            padding: 10px 22px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 14px;
+            transition: background 0.3s; 
+            margin-top: 10px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn:hover { 
+            background-color: #115e59; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 12px;
+            margin-top: 50px;
+            border-top: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>سامانه تکالیف Web GIS</h1>
+        <p>استاد گرامی، این وب‌سایت به عنوان ویترین یکپارچه  برای دسترسی تکالیف پایان‌ترم طراحی شده است. برای مشاهده ابزارها و لایه‌های هر نقشه روی دکمه تعاملی آن کلیک کنید.</p>
+    </header>
+<div class="card">
+            <h3>۱. پروژه نقشه استاتیک (اطلس آب)</h3>
+            <p>این بخش شامل طراحی اطلس آب و نقشه استاتیک است که بر اساس لایه‌های رستری و برداری پایه آماده شده و به صورت یکپارچه در ساختار وب فراخوانی می‌شود.</p>
+            <a href="Atlas_of_Water_1401-08-23-for_site/index.html" class="btn" target="_blank">🗺️ بارگذاری نقشه استاتیک</a>
+        </div>
+
+        <div class="card">
+            <h3>۲.۱. نقشه تعاملی تحت وب پایتون (Folium - فایل اول)</h3>
+            <p>توسعه‌یافته با زبان برنامه‌نویسی پایتون و کتابخانه قدرتمند Folium. این نقشه تعاملی دارای قابلیت‌های ناوبری، تغییر نقشه‌های پایه (Base Maps) و کنترل لایه‌هاست.</p>
+            <a href="folium/complete_iran_map.html" class="btn" target="_blank">⚡ اجرای محیط تعاملی پایتون</a>
+        </div>
+
+        <div class="card">
+            <h3>۲.۲. نقشه تعاملی تحت وب پایتون (Folium - فایل دوم)</h3>
+            <p>خروجی دوم و مکمل پیاده‌سازی شده در محیط پایتون جهت نمایش داده‌های توصیفی و فضایی بیشتر در بستر کتابخانه فولیم.</p>
+            <a href="folium/index.html" class="btn" target="_blank">⚡ اجرای نقشه دوم پایتون</a>
+        </div>
+
+        <div class="card">
+            <h3>۳. پروژه پایگاه داده مکانی تحت وب (qgis2web)</h3>
+            <p>خروجی مستقیم از لایه‌های وکتوری نرم‌افزار QGIS با استفاده از متدهای جاوااسکریپت (OpenLayers/Leaflet). کاملاً بهینه‌سازی شده برای وب با قابلیت جستجو و پرس‌وجوی مکانی لایه‌ها.</p>
+            <a href="qgis2web_2026_06_14-19_47_24_843132/index.html" class="btn" target="_blank">🔍 بارگذاری پنل مدیریت QGIS</a>
+        </div>
+
+    </div>
+
+    <footer>
+        طراحی و یکپارچه‌سازی - درس Web GIS | سال ۱۴۰۵
+    </footer>
+
+</body>
+</html>
